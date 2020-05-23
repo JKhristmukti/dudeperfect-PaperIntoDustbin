@@ -3,7 +3,7 @@ const World=Matter.World;
 const Bodies=Matter.Bodies;
 const Constraint=Matter.Constraint;
 
-var paper,dustbin,lid,ground,rope,world,engine;
+var paper,dustbin,lid,ground,rope1,world,engine;
 
 function setup() {
   createCanvas(800,400);
@@ -19,7 +19,7 @@ function setup() {
 
     ground = new Ground(400,200,800,10);
 
-    rope =  new Rope(paper.body,{x: 300, y: 100})
+    rope1 =  new Rope(paper.body,{x: 300, y: 100})
     
     Engine.run(engine);
 
@@ -33,14 +33,10 @@ function draw() {
 
   mouseReleased();
 
-  if (isTouching(paper.body,lid.body)) {
-    Matter.Body.setPosition(paper.body,{x: 350, y: 120})
-  }
-
   paper.display();
   dustbin.display();
   ground.display(); 
-  rope.display();
+  rope1.display();
 
   drawSprites();
 }
@@ -50,13 +46,5 @@ function mouseDragged() {
 }
 
 function mouseReleased() {
-    rope.shoot();
-}
-
-function isTouching(object1,object2){
-if(object1.x - object2.x < object2.width/2 + object1.width/2 && object2.x - object1.x < object1.width/2 + object2.width/2
-  && object1.y - object2.y < object2.height/2 + object1.height/2 && object2.y - object1.y < object2.height/2 + object1.height/2){
-    return true    
-}
-return false
+    rope1.fly();
 }

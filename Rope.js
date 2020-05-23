@@ -6,12 +6,12 @@ class Rope{
             stiffness: 0.004,
             length: 30
         }
-        this.rope = Constraint.create(options);
         this.pointB = pointB;
+        this.rope = Constraint.create(options);
         World.add(world, this.rope);
     }
 
-    shoot() {
+    fly() {
         this.rope.bodyA = null;
     }
 
