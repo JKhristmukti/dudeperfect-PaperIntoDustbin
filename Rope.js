@@ -18,6 +18,7 @@ class Rope{
         var pointA = this.sling.bodyA.position;
         var pointB = this.pointB;
         strokeWeight(4);
+        stroke("green");
         line(pointA.x,pointA.y,pointB.x,pointB.y);
         }
     }

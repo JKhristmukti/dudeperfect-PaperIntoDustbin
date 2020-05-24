@@ -3,23 +3,25 @@ const World=Matter.World;
 const Bodies=Matter.Bodies;
 const Constraint=Matter.Constraint;
 
-var paper,dustbin,lid,ground,rope1,world,engine;
+var paper,dustbin,rim1,rim2,ground,rope1,world,engine;
 
 function setup() {
   createCanvas(800,400);
   
   engine=Engine.create();
-  world=engine.World;
+  world=engine.world;
 
-    paper = new CrumpledPaper(350,120,20);
+    paper = new CrumpledPaper(350,120,20,"pink");
 
-    dustbin = new Dustbin(650,305,50,75); 
+    dustbin = new Dustbin(600,375,100,20); 
     
-    lid = new Dustbin(650,295,70,10);
+    rim1 = new Dustbin(555,280,10,170);
 
-    ground = new Ground(400,200,800,10);
+    rim2 = new Dustbin(645,280,10,170);
 
-    rope1 =  new Rope(paper.body,{x: 300, y: 100})
+    ground = new Ground(400,390,800,10);
+
+    rope1 =  new Rope(paper.body,{x: 150, y: 120})
     
     Engine.run(engine);
 
@@ -33,6 +35,8 @@ function draw() {
   dustbin.display();
   ground.display(); 
   rope1.display();
+  rim1.display();
+  rim2.display();
 }
 
 function mouseDragged() {

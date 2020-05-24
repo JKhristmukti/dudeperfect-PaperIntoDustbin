@@ -1,7 +1,8 @@
 class Ground{
     constructor(x,y,width,height){
         var options ={
-            isStatic : true
+            isStatic : true,
+            restitution: 0.5
         }
         this.body=Bodies.rectangle(x,y,width,height,options);
         this.width=width;
