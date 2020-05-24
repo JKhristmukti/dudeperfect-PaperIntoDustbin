@@ -29,20 +29,14 @@ function draw() {
   background(0,0,0); 
   Engine.update(engine);
 
-  mouseDragged();
-
-  mouseReleased();
-
   paper.display();
   dustbin.display();
   ground.display(); 
   rope1.display();
-
-  drawSprites();
 }
 
 function mouseDragged() {
-    Matter.Body.setPosition(paper.body,{x: mouseX, y: mouseY})
+    Matter.Body.setPosition(paper.body, {x: mouseX , y: mouseY});
 }
 
 function mouseReleased() {
